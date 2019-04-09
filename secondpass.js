@@ -21,7 +21,7 @@ var neighborhoods = [
 'Far Rockaway',
 'Floral Park',
 'Flushing',
-'Flushing Meadows-Corona Park',
+'Flushing Meadows Corona Park',
 'Forest Hills',
 'Forest Hills Gardens',
 'Fresh Meadows',
