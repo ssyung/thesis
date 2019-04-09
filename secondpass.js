@@ -68,8 +68,6 @@ var neighborhoods = [
 'Woodside',
 ];
 
-var neighborhoods_lc = neighborhoods.map(x => x.toLowerCase());
-
 fs.readdir('./txt', function(err, filenames) {
   if (err) {
     onError(err);
@@ -77,7 +75,6 @@ fs.readdir('./txt', function(err, filenames) {
   }
   filenames.forEach(function(filename) {
     var data = fs.readFileSync("./txt/" + filename, 'utf8');
-    data = data.replace(/\s+/g, " ");
     // console.log("processing: " + filename);
     // console.log(Object.keys(data));
     processFile(data, filename);          // Or put the next step in a function and invoke it
@@ -85,9 +82,9 @@ fs.readdir('./txt', function(err, filenames) {
 
   // writing the csv
   let buffer = '';
-  for (let word in hood_counts) {
-    for (let filename in hood_counts[word]) {
-      buffer += [word, filename, hood_counts[word][filename]].toString()+"\n";
+  for (let filename in hood_counts) {
+    for (let word in hood_counts[filename]) {
+      buffer += [filename, word, hood_counts[filename][word]].toString()+"\n";
     }
   }
 
@@ -100,25 +97,23 @@ fs.readdir('./txt', function(err, filenames) {
 });
 
 function processFile(data, filename) {
-  let words = data.split(" ");
-  words.forEach(function(word) {
-    // remove punctuation and space
-    word = word.replace(/[^\w\s]|_/g, "");
-    // if statement to check if word is a stop word
-    if (neighborhoods_lc.includes(word.toLowerCase())) {
+  // collapse whitespace
+  data = data.replace(/\s+/g, " ");
+  // remove punctuation and space
+  data = data.replace(/[^\w\s]|_/g, "");
 
-      // if this word has never been seen, start counting!
-      if (hood_counts[word.toLowerCase()] === undefined) {
-        hood_counts[word.toLowerCase()] = {};
+  neighborhoods.forEach(function(hood) {
+    // create a regex that does case insensitive global match for each neighborhood
+    let hoodRegExp = new RegExp(hood, "ig");
+    // count the matches
+    let matches = data.match(hoodRegExp);
+    if (matches !== null) {
+      // if this is first match in file, start counting for file!
+      if (hood_counts[filename] === undefined) {
+        hood_counts[filename] = {};
       }
-
-      if (hood_counts[word.toLowerCase()][filename] === undefined) {
-        hood_counts[word.toLowerCase()][filename] = 1;
-      } else {
-        hood_counts[word.toLowerCase()][filename] += 1;
-      }
-    } else {
-      // do nothing. we don't care if it's not a neighborhood word.
+      // count number of hoods
+      hood_counts[filename][hood] = matches.length;
     }
-  })
+  });
 }
