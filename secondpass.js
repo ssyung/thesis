@@ -68,7 +68,7 @@ var neighborhoods = [
 'Woodside',
 ];
 
-fs.readdir('./txt', function(err, filenames) {
+fs.readdir('./txtcleaned', function(err, filenames) {
   if (err) {
     onError(err);
     return;
@@ -88,7 +88,7 @@ fs.readdir('./txt', function(err, filenames) {
     }
   }
 
-  fs.writeFile("./hood_counts.csv", buffer, function(err) {
+  fs.writeFile("./hood_counts_cleaned.csv", buffer, function(err) {
     if(err) {
       return console.log(err);
     }

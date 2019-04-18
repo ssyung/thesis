@@ -2,7 +2,7 @@ var fs = require('fs');
 
 var locs = [];
 
-fs.readdir('./txt', function(err, filenames) {
+fs.readdir('./txtcleaned', function(err, filenames) {
   if (err) {
     onError(err);
     return;
@@ -17,7 +17,7 @@ fs.readdir('./txt', function(err, filenames) {
   for (let hood of locs) {
     buffer += hood.filename + ',"' + hood.hood + "\"\n";
   }
-  fs.writeFile("./hood_loc.csv", buffer, function(err) {
+  fs.writeFile("./hood_loc_cleaned.csv", buffer, function(err) {
     if(err) {
       return console.log(err);
     }
