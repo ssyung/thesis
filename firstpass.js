@@ -12,7 +12,7 @@ fs.readdir('./txtcleaned', function(err, filenames) {
     return;
   }
   filenames.forEach(function(filename) {
-    var data = fs.readFileSync("./txt/" + filename, 'utf8');
+    var data = fs.readFileSync("./txtcleaned/" + filename, 'utf8');
     data = data.replace(/\s+/g, " ");
     // console.log("processing: " + filename);
     // console.log(Object.keys(data));

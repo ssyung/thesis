@@ -74,7 +74,7 @@ fs.readdir('./txtcleaned', function(err, filenames) {
     return;
   }
   filenames.forEach(function(filename) {
-    var data = fs.readFileSync("./txt/" + filename, 'utf8');
+    var data = fs.readFileSync("./txtcleaned/" + filename, 'utf8');
     // console.log("processing: " + filename);
     // console.log(Object.keys(data));
     processFile(data, filename);          // Or put the next step in a function and invoke it
