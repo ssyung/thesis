@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Queens</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <style>
+      .slides > section {
+        visibility: hidden;
+      }
+      .slides > section.active {
+        visibility: visible;
+      }
+      .frag {
+        visibility: hidden;
+      }
+      .frag.active {
+        visibility: visible;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="presentr">
+      <div class="slides">
+        <section>
+          slide 1
+          <div class="frag">
+            1
+          </div>
+          <div class="frag">
+            2
+          </div>
+          <div class="frag">
+            3
+          </div>
+          <div class="frag">
+            4
+          </div>
+        </section>
+        <section>
+          slide 2
+        </section>
+        <section>
+          slide 3
+        </section>
+        <section>
+          slide 4
+        </section>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@simonwep/presentr/dist/presentr.min.js"></script>
+    <script>
+      // Simple example, see optional options for more configuration.
+      const presentr = new Presentr({
+
+        // Selector for each slide
+        slides: '.presentr .slides > section'
+      });
+    </script>
+  </body>
+</html>
