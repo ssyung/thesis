@@ -7,6 +7,7 @@
     <style>
       .slides > section {
         visibility: hidden;
+        height: 100vh;
       }
       .slides > section.active {
         visibility: visible;
@@ -23,7 +24,18 @@
     <div class="presentr">
       <div class="slides">
         <section>
-          slide 1
+          use arrow keys to start
+        </section>
+        <section slide-load="startQueens">
+          <div class="jumbotron jumbotron-fluid h-100">
+            <div class="container">
+              <h1 class="display-4">Queens</h1>
+              <p class="lead">Analyzing Oral Histories</p>
+            </div>
+          </div>
+        </section>
+        <section>
+          slide with fragments
           <div class="frag">
             1
           </div>
@@ -38,24 +50,30 @@
           </div>
         </section>
         <section>
-          slide 2
-        </section>
-        <section>
-          slide 3
-        </section>
-        <section>
-          slide 4
+          another slide
         </section>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@simonwep/presentr/dist/presentr.min.js"></script>
     <script>
+      // getting all slides to reference later
+      var slides = document.querySelectorAll('.presentr .slides > section');
+
       // Simple example, see optional options for more configuration.
       const presentr = new Presentr({
-
         // Selector for each slide
-        slides: '.presentr .slides > section'
+        slides: '.presentr .slides > section',
+        onSlide(state) {
+          if (slides[state.slideIndex].getAttribute('slide-load')) {
+            // run this functions with the slide as the argument
+            
+          }
+        }
       });
+
+      function startQueens(slide) {
+
+      }
     </script>
   </body>
 </html>
