@@ -65,14 +65,16 @@
         slides: '.presentr .slides > section',
         onSlide(state) {
           if (slides[state.slideIndex].getAttribute('slide-load')) {
-            // run this functions with the slide as the argument
-            
+            // run this functions with the slide as the argument. functions are global
+            window[slides[state.slideIndex].getAttribute('slide-load')]
+              //    this                      arg
+              .call(slides[state.slideIndex], state);
           }
         }
       });
 
-      function startQueens(slide) {
-
+      function startQueens(state) {
+        console.log("startQueens", this, state)
       }
     </script>
   </body>
