@@ -1,5 +1,6 @@
 import * as d3 from 'd3'
 import * as data from './data/bubbledata.json'
+import * as fulltext from './data/giantdata.json'
 import Controller from './controller'
 
 const canvasWidth = 900,
@@ -228,7 +229,7 @@ function dragended(d) {
 
 function click(d) {
     node.classed('active', (n) => wordId(n) == wordId(d) )
-    Controller.displayData(d, data)
+    Controller.displayData(d, data, fulltext)
 }
 
 function mouseover(d) {
