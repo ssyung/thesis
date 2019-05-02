@@ -69,6 +69,20 @@ export default {
     'Filipino',
     'Bangladeshi',
     'African American',
+    'Guyanese',
+    'Jamaican',
+    'Nepali',
+    'Tibetan',
+    'Taiwanese',
+    'European',
+    'Puerto Rican',
+    'Dominican',
+    'Colombian',
+    'Peruvian',
+    'Brazilian',
+    'Protestant',
+    'Lutheran',
+    'Baptist',
     ]
 
     chartData = chartData.map((word) => {
