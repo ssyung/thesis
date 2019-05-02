@@ -1,20 +1,25 @@
 <html>
 	<head>
+		<link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Merriweather" rel="stylesheet">
 		<meta charset="utf-8">
-        <style>#chart {
+        <style>html, body {
+							background: #FAFAFA;
+						}
+            #chart {
+							  margin: 0 auto;
 							  display: block;
-                height:500px;
-                width:960px;
+                height:600px;
+                width:1000px;
             }
 
             .node circle {
                 opacity:0.7;
-                fill: #d6be4c;
+                fill: #723582;
                 /*stroke: #66f;*/
             }
 
             .node text {
-								font-family: sans-serif;
+								font-family: 'Archivo Narrow', sans-serif;
                 fill: #001f3f;
                 stroke: none;
             }
@@ -32,17 +37,27 @@
 
 						.selected {
 							max-width: 600px;
+							font-family: 'Archivo Narrow', sans-serif;
 						}
+
+						.selected .word {
+							font-size: 40;
+							font-weight: bold;
+							color: #723582;
+						}
+
 						.selected .count {
 							float: right;
-							font-weight: bold;
 						}
+
 						p.context {
+							font-family: 'Merriweather', serif;
 							margin: 2em 0;
 						}
 
 						.highlight {
-							color: red;
+							background-color: #723582;
+							opacity: 0.8;
 						}</style>
 	</head>
 	<body>

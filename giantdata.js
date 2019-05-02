@@ -14,7 +14,7 @@ fs.readdir('./txtcleaned', function(err, filenames) {
   let arr = [];
   filenames.forEach(function(filename) {
     var data = fs.readFileSync("./txtcleaned/" + filename, 'utf8');
-
+    data = data.replace(/\s+/gm, " ");
     datajson[filename] = data;
     arr.push([filename, data]);
   });

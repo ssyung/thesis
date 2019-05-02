@@ -37,16 +37,20 @@ export default class Controller {
         container.select('.contexts')
             .selectAll('.context').remove()
 
-        // create new data struct for contexts
+        // create new data structure for contexts
         let contexts = [];
         for (let mention of interviews) {
-          let re = new RegExp(".{5,40}\\b"+word+"\\b.{5,40}", "gims")
+          let re = new RegExp(".{0,50}\\b"+word+"\\b.{0,50}", "gims")
           let matches = fulltext[mention.title].match(re);
           if (matches) {
             for (let match of matches) {
               let wordre = new RegExp("("+word+")", "ims");
               match = match.replace(wordre, "<strong class='highlight'>$&</strong>");
-              contexts.push(match.substring(match.indexOf(" "), match.lastIndexOf(" ")).trim())
+              //trimming partial words from beginning and end
+              contexts.push({
+                filename: mention.title,
+                text: match.substring(match.indexOf(" "), match.lastIndexOf(" ")).trim()
+              })
             }
           }
         }
@@ -55,7 +59,7 @@ export default class Controller {
             .selectAll('div.context').data(contexts)
             .enter().append('p')
             .attr('class', 'context')
-            .html((d) => d)
+            .html((d) => d.filename + " : " + d.text)
     }
 
 }

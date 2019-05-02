@@ -3,9 +3,9 @@ import * as data from './data/bubbledata.json'
 import * as fulltext from './data/giantdata.json'
 import Controller from './controller'
 
-const canvasWidth = 900,
+const canvasWidth = 1000,
     canvasHeight = 500,
-    padding = { top: 20, right: 20, bottom: 20, left: 20 },
+    padding = { top: 10, right: 10, bottom: 10, left: 10 },
     maxRadius = 70
 
 const width = canvasWidth - padding.left - padding.right;
@@ -31,7 +31,6 @@ var chartData = [
   "school",
   "family",
   "work",
-  "new york",
   "neighborhood",
   "community",
   "moved",
@@ -41,6 +40,7 @@ var chartData = [
   "father",
   "house",
   "started",
+  "New York City",
   "mother",
   "friends",
   "children",
@@ -59,22 +59,70 @@ var chartData = [
   "Long Island City",
   "Flushing",
   "kids",
-  "high",
+  "high school",
   "thing",
   "born",
-  "Worlds Fair",
+  "Fair",
   "Park",
   "kind",
   "music",
-  "United States",
+  "United",
   "money",
   "area",
   "Astoria",
   "called",
   "husband",
+  "American",
+  "Street",
+  "city",
+  "States",
+  "big",
+  "Brooklyn",
+  "college",
+  "married",
+  "building",
+  "love",
+  "College",
+  "knew",
+  "great",
+  "met",
+  "feel",
+  "group",
+  "English",
+  "apartment",
+  "School",
+  "Avenue",
+  "street",
+  "young",
+  "person",
+  "thought",
+  "interview",
+  "food",
+  "country",
+  "grew",
   "Jackson Heights",
-  "childhood",
-  "happy"
+  "Jamaica",
+  "Sunnyside",
+  "changed",
+  "left",
+  "business",
+  "days",
+  "change",
+  "experience",
+  "hard",
+  "America",
+  "gay",
+  "involved",
+  "friend",
+  "small",
+  "sister",
+  "brother",
+  "felt",
+  "church",
+  "child",
+  "growing",
+  "public",
+  "artist"
 ]
 
 chartData = chartData.map((word) => {
@@ -93,13 +141,13 @@ var xMax = d3.max(chartData.map(word => word.count))
 var force = d3.forceSimulation()
     .force('y', d3.forceY().strength(0.4).y(canvasHeight/2))
     .force('x', d3.forceX().strength(0.1).x(canvasWidth/2))
-    .force('charge', d3.forceManyBody().strength(-0.3))
+    .force('charge', d3.forceManyBody().strength(0))
     // .force('center', d3.forceCenter(canvasWidth / 2, canvasHeight / 2))
     .force('collide', d3.forceCollide(function(d) {
-            return rScale(count(d)) + 3
+            return rScale(count(d)) + 1
         })
-        .iterations(8)
-        .strength(1)
+        .iterations(10)
+        .strength(.5)
     )
     .alphaTarget(0)
     .on('tick', tick)
