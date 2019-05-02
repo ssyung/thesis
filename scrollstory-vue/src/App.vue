@@ -19,7 +19,6 @@
       </div>
       <div class="step" data-step-no="family">Family</div>
       <div class="step" data-step-no="identity">Identity</div>
-      <div class="step" data-step-no="phase">Life Phase</div>
       <div class="step" data-step-no="change">&nbsp;</div>
       <div class="step" data-step-no="sentiment">nbsp;</div>
 
@@ -44,7 +43,6 @@ import Queens from "/src/vis/Queens";
 import Family from "/src/vis/Family";
 import Change from "/src/vis/Change";
 import Identity from "/src/vis/Identity";
-import Phase from "/src/vis/Phase";
 import Sentiment from "/src/vis/Sentiment";
 
 export default {
@@ -56,7 +54,6 @@ export default {
     Family,
     Change,
     Identity,
-    Phase,
     Sentiment
   },
   data() {
