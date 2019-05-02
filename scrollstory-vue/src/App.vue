@@ -15,7 +15,7 @@
         <img src="/static/queenslibrary.png" alt="Queens Library">
       </div>
       <div class="step" data-step-no="bubble-chart">
-        <p>Text file notations of over 400 interviews were mined to generate this visualization of the top 100 word occurences. Though this is an imperfect analysis of the interview corpus, it does provide an overall view of common themes and discussion points. Explore <a href="bubble/">this visualization</a>.
+        <p>Outlines of over 400 interviews were mined to generate this visualization of the top 100 word occurences. Though this is an imperfect analysis of the interview corpus, it does provide an overall view of common themes and discussion points. Explore <a href="bubble/">this visualization</a>.
       </div>
       <div class="step" data-step-no="family">Family</div>
       <div class="step" data-step-no="identity">Identity</div>
