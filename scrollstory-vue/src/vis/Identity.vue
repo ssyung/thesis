@@ -66,6 +66,9 @@ export default {
     'Jewish',
     'Catholic',
     'Muslim',
+    'Filipino',
+    'Bangladeshi',
+    'African American',
     ]
 
     chartData = chartData.map((word) => {
