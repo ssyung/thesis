@@ -14,8 +14,12 @@
       <div class="step" data-step-no="queens">
         <img src="/static/queenslibrary.png" alt="Queens Library">
       </div>
-      <div class="step" data-step-no="bubble-chart">step 2</div>
-      <div class="step" data-step-no="family">step 3</div>
+      <div class="step" data-step-no="bubble-chart">
+        <p>Text file notations of over 400 interviews were mined to generate this visualization of the top 100 word occurences. Though this is an imperfect analysis of the interview corpus, it does provide an overall view of common themes and discussion points. Explore <a href="bubble/">this visualization</a>.
+      </div>
+      <div class="step" data-step-no="family">Family</div>
+      <div class="step" data-step-no="identity">Identity</div>
+      <div class="step" data-step-no="phase">Life Phase</div>
       <div class="step" data-step-no="change">step 4</div>
       <div class="step" data-step-no="sentiment">step 5</div>
 
@@ -36,6 +40,8 @@ import BubbleChart from "/src/vis/BubbleChart";
 import Queens from "/src/vis/Queens";
 import Family from "/src/vis/Family";
 import Change from "/src/vis/Change";
+import Identity from "/src/vis/Identity";
+import Phase from "/src/vis/Phase";
 import Sentiment from "/src/vis/Sentiment";
 
 export default {
@@ -46,6 +52,8 @@ export default {
     Queens,
     Family,
     Change,
+    Identity,
+    Phase,
     Sentiment
   },
   data() {
@@ -102,10 +110,10 @@ img {
   display: flex;
   flex-direction: row-reverse;
   .scrollama-steps {
-    flex: 1;
+    flex: 3;
   }
   .scrollama-graphic {
-    flex: 3;
+    flex: 10;
     height: 80vh;
     top: 10vh;
   }
@@ -122,9 +130,10 @@ img {
   justify-content: center;
 }
 .step {
-  padding: 10vh 0 80vh;
-  margin: 0 1rem 10vh;
-  min-height: 40vh;
+  /* background: #eee; */
+  padding: 20px 0 70vh;
+  margin: 0 1rem 5vh;
+  min-height: 20vh;
   display: flex;
   align-items: center;
   justify-content: center;
