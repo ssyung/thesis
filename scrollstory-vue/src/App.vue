@@ -20,8 +20,8 @@
       <div class="step" data-step-no="family">Family</div>
       <div class="step" data-step-no="identity">Identity</div>
       <div class="step" data-step-no="phase">Life Phase</div>
-      <div class="step" data-step-no="change">step 4</div>
-      <div class="step" data-step-no="sentiment">step 5</div>
+      <div class="step" data-step-no="change">&nbsp;</div>
+      <div class="step" data-step-no="sentiment">nbsp;</div>
 
       <component slot="graphic" :is="graphic">hello world</component>
     </Scrollama>

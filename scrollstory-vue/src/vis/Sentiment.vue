@@ -2,7 +2,7 @@
   <div>
     <div class="sentiment-wrap">
       <h1>Sentiment Analysis</h1>
-      <p>TODO: changes</p>
+      <p>&nbsp;</p>
     </div>
   </div>
 </template>
