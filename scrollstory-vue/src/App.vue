@@ -27,8 +27,11 @@
     </Scrollama>
 
     <div class="outro">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, at velit
-      sint facere ipsam doloremque placeat vel impedit sapiente alias.
+      <p>
+        Stephanie Yung <br>
+        M.S. Data Visualization<br>
+        The New School Parsons School of Design
+      </p>
     </div>
   </div>
 </template>
@@ -131,7 +134,7 @@ img {
 }
 .step {
   /* background: #eee; */
-  padding: 20px 0 70vh;
+  padding: 20vh 0 70vh;
   margin: 0 1rem 5vh;
   min-height: 20vh;
   display: flex;
