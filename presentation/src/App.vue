@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav id="nav">
-      <a href="#splash" @click.prevent="main = 'splash'">All the Queen's Voices</a>
+      <a href="#splash" @click.prevent="main = 'splash'">All the Queens Voices</a>
       <ul>
         <li><a href="#samples" @click.prevent="main = 'samples'">The Data</a></li>
         <li><a href="#visualization" @click.prevent="main = 'visualization'">Visualization</a></li>

@@ -12,7 +12,7 @@
   export default {
     data() {
       return {
-        words: require('/src/data/topwords.json')
+        words: require('/src/data/topwords-color.json')
       }
     },
     components: {

@@ -36,6 +36,7 @@
         const count = (topic) => +topic.count
         const wordId = (topic) => topic.word
         const textContent = (topic) => topic.word
+        const circleColor = (topic) => topic.color
 
         var label,
             countLabel,
@@ -45,10 +46,11 @@
 
         chartData = chartData.map((word) => {
           return {
-            word: word,
-            re: new RegExp("\\b(" + word + ")\\b", "g"),
+            word: word.word,
+            re: new RegExp("\\b(" + word.word + ")\\b", "g"),
             x: canvasWidth/2,
-            y: canvasHeight/2
+            y: canvasHeight/2,
+            color: word.color
           }
         })
 
@@ -140,6 +142,7 @@
 
           nodeEnter
             .append('circle')
+            .attr('fill', circleColor)
             .attr('r', (d) => rScale(count(d)))
 
           nodeEnter.append('text')
@@ -242,7 +245,7 @@
 
   .node circle {
       opacity:0.7;
-      fill: #723582;
+      // fill: #723582;
       /*stroke: #66f;*/
   }
 
@@ -272,7 +275,6 @@
   .selected .word {
     font-size: 40;
     font-weight: bold;
-    color: #723582;
   }
 
   .selected .count {
@@ -285,7 +287,7 @@
   }
 
   .highlight {
-    background-color: #723582;
+    background-color: #bca99c;
     opacity: 0.8;
   }
 </style>
