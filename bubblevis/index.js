@@ -128,7 +128,7 @@ var chartData = [
 chartData = chartData.map((word) => {
     return {
         word: word,
-        re: new RegExp("\\b(" + word.toLowerCase() + ")\\b", "gi"),
+        re: new RegExp("\\b(" + word + ")\\b", "g"),
         x: canvasWidth/2,
         y: canvasHeight/2
     }
@@ -170,7 +170,6 @@ function init() {
     function parseWord() {
         var word = document.getElementById('word-input').value
         document.getElementById('word-input').value = ''
-        word = word.toLowerCase()
         if(word) addTopic(word)
     }
 }
@@ -322,13 +321,13 @@ function topic(topic) {
     return topic;
 }
 
-
+//when adding new word, check if it already exists on page
 function addTopic(word) {
 
-    var t = topic({ word: word, re: new RegExp("\\b(" + word.trim() + ")\\b", "gi")});
+    var t = topic({ word: word, re: new RegExp("\\b(" + word.trim() + ")\\b", "g")});
 
     var check = chartData.find(function(w) {
-        return w.word.toLowerCase() === word.toLowerCase()
+        return w.word === word
     })
 
     if(check) return click(check)
