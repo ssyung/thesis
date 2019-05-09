@@ -16,7 +16,7 @@
       </div>
       <div class="timecode-wrap">
         <div class="timecode" id="timecode">
-          <em>Select a record.</em>
+          <em>Select an interview.</em>
         </div>
       </div>
     </div>

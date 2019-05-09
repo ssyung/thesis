@@ -1,5 +1,6 @@
 <template>
   <div>
+    <center><input id="word-input" placeholder="Add a word or phrase"></center>
     <svg id="chart"></svg>
     <div class="selected">
       <div class="word"></div>
@@ -210,7 +211,7 @@
 
 
         function addTopic(word) {
-          var t = topic({ word: word, re: new RegExp("\\b(" + word.trim() + ")\\b", "g")});
+          var t = topic({ word: word, re: new RegExp("\\b(" + word.trim() + ")\\b", "g"), color: "#bca99c"});
           var check = chartData.find(function(w) {
             return w.word === word
           })
@@ -225,6 +226,22 @@
           force.restart()
           // force.alphaTarget(1)
           click(t)
+        }
+        d3.select('#word-button')
+        .on('click', function() {
+            parseWord()
+        })
+
+        d3.select('#word-input')
+            .on('keypress', function() {
+                if(d3.event.keyCode !== 13) return
+                parseWord()
+            })
+
+        function parseWord() {
+            var word = document.getElementById('word-input').value
+            document.getElementById('word-input').value = ''
+            if(word) addTopic(word)
         }
       }
     },
