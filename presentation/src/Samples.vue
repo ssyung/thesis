@@ -38,8 +38,8 @@
         // loading/setting audio file
         var audio = document.getElementById('audio');
         var source = document.getElementById('audioSource');
-        // source.src = 'https://ssyung.github.io/thesis/audio/'+file.audio;
-        // audio.load();
+        source.src = 'https://ssyung.github.io/thesis/audio/'+file.audio;
+        audio.load();
 
         // loading timecode text
         axios.get('https://ssyung.github.io/thesis/timecodes/'+file.timecode).then((resp) => {
