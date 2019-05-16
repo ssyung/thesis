@@ -21,7 +21,10 @@ import Samples from "/src/Samples";
 import Visualization from "/src/Visualization";
 import Identity from "/src/Identity";
 import Family from "/src/Family";
+import Value from "/src/Value";
+import Lifestage from "/src/Lifestage";
 import Neighborhoods from "/src/Neighborhoods";
+import People from "/src/People";
 import EventBus from '/src/events'
 
 export default {
@@ -33,6 +36,9 @@ export default {
     Identity,
     Neighborhoods,
     Family,
+    Lifestage,
+    Value,
+    People,
   },
   data() {
     return {

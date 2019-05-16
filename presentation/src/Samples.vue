@@ -64,7 +64,7 @@
     width: 30%;
     box-sizing: border-box;
     float: left;
-    overflow: auto;
+    overflow: scroll;
     height: 640px;
     ul {
       list-style: none;

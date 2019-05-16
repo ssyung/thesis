@@ -1,4 +1,5 @@
 import * as d3 from 'd3'
+const shuffle = require('shuffle-array')
 
 export default class Controller {
 
@@ -46,20 +47,24 @@ export default class Controller {
             for (let match of matches) {
               let wordre = new RegExp("("+word+")", "ims");
               match = match.replace(wordre, "<strong class='highlight'>$&</strong>");
+              let name = mention.title.replace('_timecode.txt', '');
+              let name_parts = name.split("_", 2);
+              name = name_parts[1] + " " + name_parts[0].substr(0, 1);
+
               //trimming partial words from beginning and end
               contexts.push({
-                filename: mention.title,
+                name: name,
                 text: match.substring(match.indexOf(" "), match.lastIndexOf(" ")).trim()
               })
             }
           }
         }
-
+        shuffle(contexts);
         container.select('.contexts')
             .selectAll('div.context').data(contexts)
             .enter().append('p')
             .attr('class', 'context')
-            .html((d) => d.filename + " : " + d.text)
+            .html((d) => "<em>" + d.name + "</em> : " + d.text)
     }
 
 }
